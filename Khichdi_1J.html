@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>खिचडी 1J — Recipes · Stories · Videos</title>
+<meta name="theme-color" content="#ece0c4">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="खिचडी 1J">
+<meta name="application-name" content="खिचडी 1J">
+<meta name="description" content="Marathi recipes, stories, videos and lifestyle — ad-free reader">
+<link rel="manifest" href="#" id="pwa-manifest-link">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='28' fill='%23ece0c4'/%3E%3Cpath d='M30 110 L110 110 C115 110 118 135 105 135 L45 135 C30 135 25 110 30 110 Z' fill='%231a1a1a'/%3E%3Cpath d='M105 115 Q145 110 165 105 A5 5 0 0 1 165 115 Q145 120 105 125 Z' fill='%231a1a1a'/%3E%3Cpath d='M60 90 C45 75 75 60 55 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M80 90 C65 75 95 60 75 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M100 90 C85 75 115 60 95 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='28' fill='%23ece0c4'/%3E%3Cpath d='M30 110 L110 110 C115 110 118 135 105 135 L45 135 C30 135 25 110 30 110 Z' fill='%231a1a1a'/%3E%3Cpath d='M105 115 Q145 110 165 105 A5 5 0 0 1 165 115 Q145 120 105 125 Z' fill='%231a1a1a'/%3E%3Cpath d='M60 90 C45 75 75 60 55 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M80 90 C65 75 95 60 75 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M100 90 C85 75 115 60 95 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* Base styling ensuring strictly black fonts only */
+  body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #c9bca3;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.015) 1px, rgba(0,0,0,0.015) 2px);
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    display: flex;
+    justify-content: center;
+  }
+  
+  h1, h2, h3, h4, p, a, span, div, li, ul, strong, button, input {
+    color: #000000 !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .mobile-container {
+    width: 100%;
+    max-width: 960px; 
+    background-color: #ece0c4;
+    min-height: 100vh;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .masthead {
+    border-bottom: 3px double #000;
+    padding: 22px 20px 16px;
+    text-align: center;
+    background: #ece0c4;
+    position: relative;
+  }
+  .masthead-controls {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .masthead-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .masthead-title {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: clamp(56px, 10vw, 104px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 8px 0;
+  }
+  .masthead-title .pan-icon {
+    font-size: 1em;
+    vertical-align: middle;
+    margin-left: 6px;
+    display: inline-block;
+  }
+  .masthead-title .pan-icon svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    display: block;
+  }
+  .masthead-controls #lang-select {
+    background: #e9c46a;
+    border: 2px solid #000;
+    padding: 6px 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+    cursor: pointer;
+  }
+  .masthead-controls .reset-small-btn {
+    background: #d4a373;
+    border: 2px solid #000;
+    padding: 8px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.8em;
+    white-space: nowrap;
+  }
+  .masthead-controls .reset-small-btn:hover {
+    background: #c4956a;
+  }
+
+  .category-title {
+    background-color: #e07a5f;
+    padding: 12px;
+    border: 3px solid #000000;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  #section-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 25px;
+  }
+
+  .section-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 14px 10px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .section-btn:hover {
+    filter: brightness(0.9);
+  }
+
+  .section-btn.active {
+    filter: brightness(0.8);
+    border-width: 3px;
+  }
+
+  .section-content {
+    display: none;
+  }
+
+  .section-content.open {
+    display: block;
+  }
+
+  #saved-section {
+    background-color: #e9c46a;
+    border: 3px dashed #000000;
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+  
+  #saved-section .category-title {
+    margin-top: 0;
+    background-color: #d4a373;
+  }
+
+  .feed-section {
+    margin-bottom: 40px;
+  }
+
+  .feed-section h2 {
+    border-bottom: 3px solid #000000;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2em;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .language-tag {
+    font-size: 0.75em;
+    background-color: #a8dadc;
+    padding: 4px 8px;
+    border: 1px solid #000000;
+    font-weight: bold;
+    align-self: flex-start;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    margin-top: 15px;
+  }
+
+  .insight-card {
+    background-color: #e0e1dd;
+    border: 3px solid #000000;
+    padding: 18px 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .insight-card h3 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 5px;
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+
+  .insight-card p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  .feed-item {
+    margin-bottom: 28px;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 20px;
+  }
+
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: block;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    text-decoration: none;
+  }
+  .headline:hover {
+    text-decoration: underline;
+  }
+
+  .description {
+    font-size: 21px;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 10px;
+  }
+
+  .meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .view-orig-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-decoration: underline;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .loading {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  /* Search & Interactive Tools Input Styling */
+  .search-input {
+    padding: 12px;
+    border: 2px solid #000000;
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #f4f1de;
+    font-size: 1.1em;
+  }
+  
+  .search-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .goog-te-banner-frame, .goog-te-menu-frame, .goog-te-gadget-icon {
+    display: none !important;
+  }
+
+  body > .skiptranslate {
+    display: none !important;
+  }
+
+  .goog-te-gadget {
+    height: 0 !important;
+    overflow: hidden !important;
+    font-size: 0 !important;
+  }
+
+  /* ===== ARTICLE READER PANEL ===== */
+  #reader-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  #reader-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  #reader-panel {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: 100%;
+    max-width: 780px;
+    background: #ece0c4;
+    z-index: 1000;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.4);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid #000;
+  }
+  #reader-panel.open {
+    transform: translateX(0);
+  }
+  .reader-topbar {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 2px solid #000;
+    flex-shrink: 0;
+    background: #4a6fa5;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .reader-back-btn {
+    background: #e9c46a;
+    border: 2px solid #000;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 6px 14px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  /* Floating back button shown over the video on mobile */
+  #video-float-back {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    background: #e9c46a;
+    color: #000;
+    border: 2px solid #000;
+    padding: 12px 28px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 30px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+    white-space: nowrap;
+  }
+  .reader-source-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .reader-font-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .reader-font-btn {
+    background: none;
+    border: 2px solid #000;
+    cursor: pointer;
+    padding: 2px 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  .reader-ext-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    text-decoration: underline;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    white-space: nowrap;
+  }
+  .reader-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 25px 40px;
+  }
+  #reader-content p { text-align: justify; }
+  .reader-progress {
+    height: 3px;
+    background: #000;
+    width: 0%;
+    transition: width 0.1s;
+    flex-shrink: 0;
+  }
+  .reader-article-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .reader-article-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #000;
+  }
+  .reader-body {
+    font-size: var(--reader-font-sz, 17px);
+    line-height: 1.8;
+  }
+  .reader-body p {
+    margin-bottom: 1.2em;
+  }
+  .reader-body a {
+    text-decoration: underline;
+  }
+  .reader-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border: 2px solid #000;
+  }
+  .reader-body blockquote {
+    border-left: 3px solid #000;
+    padding-left: 15px;
+    margin-left: 0;
+  }
+  .reader-body ul, .reader-body ol {
+    padding-left: 25px;
+  }
+  .reader-body li {
+    margin-bottom: 0.4em;
+  }
+  .reader-body figcaption {
+    font-size: 0.85em;
+    text-align: center;
+    font-style: italic;
+  }
+  .reader-status {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+  .reader-video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    margin-bottom: 0;
+    background: #000;
+  }
+  .reader-video-embed {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .load-more-wrap {
+    text-align: center;
+    margin: 18px 0 20px;
+  }
+  .load-more-btn {
+    background: none;
+    border: 2px solid #000;
+    padding: 9px 24px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .load-more-btn:hover {
+    background: #e0e1dd;
+  }
+  .load-more-indicator {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+  }
+  .load-more-indicator:hover {
+    text-decoration: underline;
+  }
+</style>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+
+<div class="mobile-container">
+  
+  <div class="masthead">
+    <div class="masthead-controls">
+      <div id="google_translate_element" style="display:inline-block"></div>
+      <select id="lang-select">
+        <option value="marathi">Marathi</option>
+        <option value="hindi">Hindi</option>
+        <option value="english">English</option>
+      </select>
+      <button class="reset-small-btn" id="reset-btn">&#8634; Reset</button>
+    </div>
+    <div class="masthead-tagline">खिचडी 1J</div>
+    <div class="masthead-title">खिचडी<span class="pan-icon"><svg viewBox="0 0 192 192"><path d="M30 110 L110 110 C115 110 118 135 105 135 L45 135 C30 135 25 110 30 110 Z" fill="#1a1a1a"/><path d="M105 115 Q145 110 165 105 A5 5 0 0 1 165 115 Q145 120 105 125 Z" fill="#1a1a1a"/><path d="M60 90 C45 75 75 60 55 45" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/><path d="M80 90 C65 75 95 60 75 45" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/><path d="M100 90 C85 75 115 60 95 45" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/></svg></span></div>
+    <div class="masthead-tagline">Recipes · Stories · Videos · YouTube</div>
+  </div>
+
+  <div id="section-buttons"></div>
+
+  <div id="saved-section" style="display: none;">
+    <div class="category-title">&#128206; Saved</div>
+    <div class="grid" id="saved-grid"></div>
+  </div>
+
+  <div id="feed-container"></div>
+
+</div>
+
+<div id="reader-backdrop"></div>
+<button id="video-float-back" onclick="closeReader()">&#8592; Back to Feed</button>
+<div id="reader-panel">
+  <div class="reader-topbar">
+    <button class="reader-back-btn" id="reader-close-btn">&larr;</button>
+    <span class="reader-source-label" id="reader-source">Source</span>
+    <div class="reader-font-controls">
+      <button class="reader-font-btn" id="reader-font-dec">A&minus;</button>
+      <button class="reader-font-btn" id="reader-font-inc">A+</button>
+    </div>
+    <button class="reader-ext-link" id="reader-ext-link">&#8599; Original site</button>
+  </div>
+  <div class="reader-progress" id="reader-progress"></div>
+  <div class="reader-scroll" id="reader-scroll">
+    <div id="reader-content">
+      <div class="reader-status">Select an article to read</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ==========================================
+  // LANDSCAPE/FULLSCREEN HANDLER
+  // ==========================================
+  function makeLandscape() {
+    var videoEl = document.querySelector('.reader-video-embed');
+    if (videoEl) {
+      if (videoEl.requestFullscreen) {
+        videoEl.requestFullscreen().then(function() {
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock('landscape').catch(function(e) { console.log(e); });
+          }
+        }).catch(function(e) { console.log(e); });
+      } else if (videoEl.webkitRequestFullscreen) {
+        videoEl.webkitRequestFullscreen();
+      } else if (videoEl.msRequestFullscreen) {
+        videoEl.msRequestFullscreen();
+      }
+    }
+  }
+
+  // ==========================================
+  // YOUTUBE SERIES FETCH LOGIC
+  // ==========================================
+  function fetchSeriesEpisodes() {
+    const url = document.getElementById('series-tracker-input').value.trim();
+    if (!url) {
+      alert("Please paste a valid YouTube Playlist or Channel link.");
+      return;
+    }
+    
+    let rssUrl = '';
+    const playlistMatch = url.match(/[?&]list=([^&]+)/);
+    if (playlistMatch) {
+      rssUrl = 'https://www.youtube.com/feeds/videos.xml?playlist_id=' + playlistMatch[1];
+    } else if (url.includes('channel/')) {
+      const channelMatch = url.match(/channel\/([^/?]+)/);
+      if (channelMatch) {
+        rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + channelMatch[1];
+      }
+    } else if (url.includes('user/')) {
+      const userMatch = url.match(/user\/([^/?]+)/);
+      if (userMatch) {
+        rssUrl = 'https://www.youtube.com/feeds/videos.xml?user=' + userMatch[1];
+      }
+    } else if (url.includes('@')) {
+       alert("Please use a Playlist Link (contains 'list=...') or Channel ID link instead of a handle (@name).");
+       return;
+    } else {
+      alert("Could not recognize playlist or channel ID from the link. Please ensure it's a valid YouTube playlist or channel URL.");
+      return;
+    }
+
+    const resultsGrid = document.getElementById('series-results-grid');
+    resultsGrid.innerHTML = '<p class="loading">Fetching episodes...</p>';
+
+    fetch(rss2jsonUrl + encodeURIComponent(rssUrl))
+      .then(response => response.json())
+      .then(data => {
+        if (data.status !== 'ok') {
+          resultsGrid.innerHTML = '<p style="font-weight:bold; text-align:center;">Could not fetch episodes. The publisher may have restricted access.</p>';
+          return;
+        }
+        
+        let html = '<h3 style="margin-top:0; padding-bottom:10px; border-bottom:2px solid #000; font-size:16px;">&#127902; ' + data.feed.title + '</h3>';
+        
+        // Filter out rss2json injected ad/promo items (they don't link to youtube.com)
+        const cleanItems = data.items.filter(item => item.link && item.link.includes('youtube.com'));
+        
+        cleanItems.forEach(item => {
+          const safeTitle = item.title.replace(/"/g, '&quot;');
+          html += '<div class="feed-item" style="margin-bottom: 15px; padding-bottom: 15px;">' +
+              '<span class="headline reader-trigger" data-url="' + item.link + '" data-title="' + safeTitle + '" data-feed="' + data.feed.title + '" data-date="' + item.pubDate + '" data-isyoutube="true">' + item.title + '</span>' +
+              '<div class="meta" style="margin-top:8px;">' +
+                '<span>' + new Date(item.pubDate).toLocaleDateString() + '</span>' +
+              '</div>' +
+            '</div>';
+        });
+        
+        resultsGrid.innerHTML = html;
+      })
+      .catch(error => {
+        resultsGrid.innerHTML = '<p style="font-weight:bold; text-align:center;">Error fetching data. Check your network connection.</p>';
+      });
+  }
+
+  // ==========================================
+  // TRAVEL DISCOVERY LOGIC
+  // ==========================================
+  function searchTravel(type) {
+    const query = document.getElementById('travel-search-input').value.trim();
+    if (!query) {
+      alert("Please enter a destination name first.");
+      return;
+    }
+    
+    // Add "India" to the search term to ensure relevant results
+    const encodedQuery = encodeURIComponent(query + " tourism India");
+    let url = "";
+    
+    if (type === 'photos') {
+      // Direct link to Google Images
+      url = "https://www.google.com/search?tbm=isch&q=" + encodedQuery;
+    } else if (type === 'youtube') {
+      // Direct link to YouTube Video Search for Travel Vlogs
+      url = "https://www.youtube.com/results?search_query=" + encodedQuery + "+travel+vlog";
+    }
+    
+    window.open(url, '_blank');
+  }
+
+  // ==========================================
+  // SHOPPING — UPGRADED (1J)
+  // ==========================================
+
+  // ---- Wishlist (localStorage) ----
+  var _wishlist = JSON.parse(localStorage.getItem('khichdi_wishlist') || '[]');
+
+  function saveWishlist() {
+    localStorage.setItem('khichdi_wishlist', JSON.stringify(_wishlist));
+  }
+
+  function addToWishlist() {
+    var name = document.getElementById('wish-name').value.trim();
+    var note = document.getElementById('wish-note').value.trim();
+    if (!name) { alert('Please enter a product name.'); return; }
+    _wishlist.unshift({ id: Date.now(), name: name, note: note, added: new Date().toLocaleDateString('en-IN') });
+    saveWishlist();
+    renderWishlist();
+    document.getElementById('wish-name').value = '';
+    document.getElementById('wish-note').value = '';
+  }
+
+  function removeWishItem(id) {
+    _wishlist = _wishlist.filter(function(w) { return w.id !== id; });
+    saveWishlist();
+    renderWishlist();
+  }
+
+  function searchWishItem(name, portal) {
+    var encoded = encodeURIComponent(name);
+    var urls = {
+      amazon:   'https://www.amazon.in/s?k=' + encoded,
+      flipkart: 'https://www.flipkart.com/search?q=' + encoded,
+      meesho:   'https://www.meesho.com/search?q=' + encoded,
+      nykaa:    'https://www.nykaa.com/search/result/?q=' + encoded,
+    };
+    window.open(urls[portal] || urls.amazon, '_blank');
+  }
+
+  function renderWishlist() {
+    var el = document.getElementById('wishlist-items');
+    if (!el) return;
+    if (_wishlist.length === 0) {
+      el.innerHTML = '<p style="font-family:monospace;font-size:11px;text-align:center;padding:20px 0;opacity:0.6;">Your wishlist is empty. Add items above.</p>';
+      return;
+    }
+    var html = '';
+    _wishlist.forEach(function(w) {
+      var safeName = w.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+      html += '<div style="border:2px solid #000;padding:12px;margin-bottom:10px;background:#fffdf5;">';
+      html += '<div style="font-weight:bold;font-size:15px;margin-bottom:4px;">' + w.name + '</div>';
+      if (w.note) html += '<div style="font-size:12px;opacity:0.7;margin-bottom:6px;">' + w.note + '</div>';
+      html += '<div style="font-family:monospace;font-size:9px;opacity:0.5;margin-bottom:10px;">Added ' + w.added + '</div>';
+      html += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;">';
+      html += '<button onclick="searchWishItem(&quot;' + safeName + '&quot;,&quot;amazon&quot;)" style="background:#ff9900;border:2px solid #000;padding:5px 10px;font-size:11px;font-weight:bold;cursor:pointer;">Amazon</button>';
+      html += '<button onclick="searchWishItem(&quot;' + safeName + '&quot;,&quot;flipkart&quot;)" style="background:#2874f0;color:#fff;border:2px solid #000;padding:5px 10px;font-size:11px;font-weight:bold;cursor:pointer;">Flipkart</button>';
+      html += '<button onclick="searchWishItem(&quot;' + safeName + '&quot;,&quot;meesho&quot;)" style="background:#f43397;color:#fff;border:2px solid #000;padding:5px 10px;font-size:11px;font-weight:bold;cursor:pointer;">Meesho</button>';
+      html += '<button onclick="searchWishItem(&quot;' + safeName + '&quot;,&quot;nykaa&quot;)" style="background:#fc2779;color:#fff;border:2px solid #000;padding:5px 10px;font-size:11px;font-weight:bold;cursor:pointer;">Nykaa</button>';
+      html += '</div>';
+      html += '<button onclick="removeWishItem(' + w.id + ')" style="background:#e0e1dd;border:2px solid #000;padding:4px 12px;font-size:11px;font-weight:bold;cursor:pointer;width:100%;">&#10003; Mark as Bought / Remove</button>';
+      html += '</div>';
+    });
+    el.innerHTML = html;
+  }
+
+  // ---- Shop Search ----
+  function shopSearch(portal) {
+    var q = document.getElementById('shop-q').value.trim();
+    if (!q) { alert('Please enter a product name.'); return; }
+    var enc = encodeURIComponent(q);
+    var urls = {
+      amazon:    'https://www.amazon.in/s?k=' + enc,
+      flipkart:  'https://www.flipkart.com/search?q=' + enc,
+      myntra:    'https://www.myntra.com/' + enc,
+      meesho:    'https://www.meesho.com/search?q=' + enc,
+      nykaa:     'https://www.nykaa.com/search/result/?q=' + enc,
+      snapdeal:  'https://www.snapdeal.com/search?keyword=' + enc,
+      tatacliq:  'https://www.tatacliq.com/search/?searchCategory=all&text=' + enc,
+      google:    'https://www.google.com/search?tbm=shop&q=' + enc,
+    };
+    window.open(urls[portal], '_blank');
+  }
+
+  function shopCompare() {
+    var q = document.getElementById('shop-q').value.trim();
+    if (!q) { alert('Please enter a product name.'); return; }
+    var enc = encodeURIComponent(q);
+    window.open('https://www.amazon.in/s?k=' + enc, '_blank');
+    setTimeout(function() { window.open('https://www.flipkart.com/search?q=' + enc, '_blank'); }, 400);
+    setTimeout(function() { window.open('https://www.google.com/search?tbm=shop&q=' + enc, '_blank'); }, 800);
+  }
+
+  function setShopCategory(cat) {
+    document.getElementById('shop-q').value = cat;
+    document.getElementById('shop-q').focus();
+  }
+
+  // ---- Price History ----
+  function checkPriceHistory() {
+    var input = document.getElementById('shop-q').value.trim();
+    if (!input) { alert('Enter a product name or paste a URL first.'); return; }
+    var isUrl = /^https?:\/\//.test(input);
+    if (isUrl) {
+      if (input.includes('amazon.in')) {
+        window.open('https://in.camelcamelcamel.com/search?sq=' + encodeURIComponent(input), '_blank');
+      } else {
+        window.open('https://pricehistoryapp.com/search?q=' + encodeURIComponent(input), '_blank');
+      }
+    } else {
+      window.open('https://in.camelcamelcamel.com/search?sq=' + encodeURIComponent(input), '_blank');
+      setTimeout(function() { window.open('https://www.google.com/search?tbm=shop&q=' + encodeURIComponent(input) + '+price+history+India', '_blank'); }, 400);
+    }
+  }
+
+  // ---- Shopping tab switcher ----
+  function shopTab(tab) {
+    ['shop-tab-search','shop-tab-wishlist','shop-tab-deals','shop-tab-cashback'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    ['stb-search','stb-wishlist','stb-deals','stb-cashback'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) { el.style.background = '#e0e1dd'; el.style.borderBottom = '2px solid #000'; }
+    });
+    var show = document.getElementById('shop-tab-' + tab);
+    if (show) show.style.display = 'block';
+    var activeBtn = document.getElementById('stb-' + tab);
+    if (activeBtn) { activeBtn.style.background = '#e9c46a'; activeBtn.style.borderBottom = '3px solid #000'; }
+  }
+
+  // ==========================================
+  // STATE MANAGEMENT (LOCAL STORAGE)
+  // ==========================================
+  let readArticles = JSON.parse(localStorage.getItem('readArticles')) || [];
+  let savedArticles = JSON.parse(localStorage.getItem('savedArticles')) || [];
+  const BATCH_SIZE = 25;
+  const feedPageState = {};
+
+  function markAsRead(link) {
+    if (!readArticles.includes(link)) {
+      readArticles.push(link);
+      localStorage.setItem('readArticles', JSON.stringify(readArticles));
+    }
+    const cardElement = document.querySelector(`.card[data-link="${link}"]`);
+    if (cardElement) {
+      cardElement.style.display = 'none';
+    }
+  }
+
+  function saveArticle(articleDataStr) {
+    const article = JSON.parse(decodeURIComponent(articleDataStr));
+    if (!savedArticles.find(a => a.link === article.link)) {
+      savedArticles.push(article);
+      localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+    }
+    markAsRead(article.link);
+    renderSavedSection();
+  }
+
+  function unsaveArticle(link) {
+    savedArticles = savedArticles.filter(a => a.link !== link);
+    localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+    renderSavedSection();
+  }
+
+  function resetHistory() {
+    if (confirm("This will un-hide all previously read articles. Continue?")) {
+      localStorage.removeItem('readArticles');
+      location.reload();
+    }
+  }
+
+  // ==========================================
+  // RENDER SAVED ARTICLES UI (TEXT ONLY)
+  // ==========================================
+  function renderSavedSection() {
+    const savedSection = document.getElementById('saved-section');
+    const savedGrid = document.getElementById('saved-grid');
+    savedGrid.innerHTML = '';
+
+    if (savedArticles.length === 0) {
+      savedSection.style.display = 'none';
+      return;
+    }
+
+    savedSection.style.display = 'block';
+
+    savedArticles.forEach(article => {
+      const feedItem = document.createElement('div');
+      feedItem.className = 'feed-item';
+      
+      const safeTitle = article.title.replace(/"/g, '&quot;');
+      feedItem.innerHTML = `
+        <span class="headline reader-trigger" data-url="${article.link}" data-title="${safeTitle}" data-feed="Saved" data-date="">${article.title}</span>
+        <p class="description">${article.summary}</p>
+        <div class="meta">
+          <span></span>
+          <span>
+            <button class="view-orig-btn" onclick="window.open('${getTranslatedLink(article.link, false)}','_blank')">↗ Original site</button>
+            <button class="view-orig-btn btn-unsave" data-link="${article.link}" style="margin-left:12px;">Remove</button>
+          </span>
+        </div>
+      `;
+      savedGrid.appendChild(feedItem);
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.btn-unsave')) {
+       unsaveArticle(e.target.getAttribute('data-link'));
+    }
+  });
+
+  renderSavedSection();
+
+  // ==========================================
+  // CONTENT & FEED GENERATION
+  // ==========================================
+
+  const wellnessTips = [
+    "Taking a 10-15 minute walk immediately after meals helps your muscles absorb energy directly, naturally blunting post-meal blood sugar spikes.",
+    "Starting your meals with a portion of fiber-rich greens before eating carbohydrates slows digestion and prevents sudden spikes in energy levels.",
+    "Adding a pinch of cinnamon to your morning tea or oatmeal not only enhances flavor but has been scientifically shown to support healthy metabolic function and insulin sensitivity.",
+    "Staying well-hydrated helps your body naturally flush out excess sugars through the kidneys. Aim to drink a glass of water an hour before heavy meals.",
+    "Incorporating strength-based Yoga poses (like the Plank or Warrior series) builds muscle tone, which acts as a natural reservoir to safely store and manage blood glucose.",
+    "Consuming a small spoonful of apple cider vinegar diluted in water before a carbohydrate-heavy meal can improve insulin response and lower post-meal glucose."
+  ];
+
+  const womensWellnessTips = [
+    "Bone Vitality: As natural hormonal shifts occur, maintaining bone density is crucial. Ensure adequate daily Calcium and Vitamin D intake, and include weight-bearing exercises like brisk walking.",
+    "Heart Protection: Hormonal changes can influence cardiovascular health. Incorporate Omega-3 rich foods like flaxseeds, walnuts, or fatty fish into your daily meals to support a strong heart.",
+    "Strength & Mobility: Maintaining muscle tone is vital for long-term mobility and metabolic health. Light strength training or resistance band workouts twice a week do wonders for your overall energy.",
+    "Joint Flexibility: Gentle daily stretching or restorative Yoga helps maintain joint lubrication and flexibility, easing morning stiffness and keeping you active throughout the day.",
+    "Energy Distribution: To optimize your daily energy levels, try to spread your protein intake evenly across breakfast, lunch, and dinner rather than having it all in one heavy meal.",
+    "Restorative Sleep: Natural hormonal shifts can sometimes disrupt sleep architecture. Maintaining a consistent, cool, and dark sleeping environment supports healthy stress levels and overall immunity."
+  ];
+
+  function getRandomTip(array) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+  }
+
+  // Complete array of all sections including the new YouTube Series section
+  const mainSections = [
+    {
+      title: "News",
+      categories: [
+        {
+          title: "News18 Marathi (न्यूज१८ लोकमत)",
+          injectTip: false,
+          feeds: [
+            { name: "News18 Marathi - Main", language: "Marathi", url: "https://news18marathi.com/rss/" }
+          ]
+        },
+        {
+          title: "ABP Majha (एबीपी माझा)",
+          injectTip: false,
+          feeds: [
+            { name: "ABP Majha - Latest", language: "Marathi", url: "https://marathi.abplive.com/latest-news/feed" },
+            { name: "ABP Majha - Maharashtra", language: "Marathi", url: "https://marathi.abplive.com/news/maharashtra/feed" },
+            { name: "ABP Majha - Politics", language: "Marathi", url: "https://marathi.abplive.com/news/politics/feed" },
+            { name: "ABP Majha - Mumbai", language: "Marathi", url: "https://marathi.abplive.com/news/mumbai/feed" },
+            { name: "ABP Majha - Sports", language: "Marathi", url: "https://marathi.abplive.com/sports/feed" },
+            { name: "ABP Majha - Entertainment", language: "Marathi", url: "https://marathi.abplive.com/entertainment/feed" },
+            { name: "ABP Majha - Business", language: "Marathi", url: "https://marathi.abplive.com/business/feed" },
+            { name: "ABP Majha - Crime", language: "Marathi", url: "https://marathi.abplive.com/crime/feed" },
+            { name: "ABP Majha - World", language: "Marathi", url: "https://marathi.abplive.com/news/world/feed" },
+            { name: "ABP Majha - Lifestyle", language: "Marathi", url: "https://marathi.abplive.com/lifestyle/feed" },
+            { name: "ABP Majha - Tech", language: "Marathi", url: "https://marathi.abplive.com/news/technology/feed" },
+            { name: "ABP Majha - Agriculture", language: "Marathi", url: "https://marathi.abplive.com/agriculture/feed" },
+            { name: "ABP Majha - Health", language: "Marathi", url: "https://marathi.abplive.com/health/feed" }
+          ]
+        },
+        {
+          title: "Loksatta (लोकसत्ता)",
+          injectTip: false,
+          feeds: [
+            { name: "Loksatta - Latest", language: "Marathi", url: "https://www.loksatta.com/latest-news/feed" },
+            { name: "Loksatta - Maharashtra", language: "Marathi", url: "https://www.loksatta.com/maharashtra-news/feed" },
+            { name: "Loksatta - Mumbai", language: "Marathi", url: "https://www.loksatta.com/mumbai-news/feed" }
+          ]
+        },
+        {
+          title: "Maharashtra Times (महाराष्ट्र टाइम्स)",
+          injectTip: false,
+          feeds: [
+            { name: "Maharashtra Times - Main", language: "Marathi", url: "https://maharashtratimes.com/rssfeeds/4836692.cms" }
+          ]
+        },
+        {
+          title: "TV9 Marathi (टीव्ही९ मराठी)",
+          injectTip: false,
+          feeds: [
+            { name: "TV9 Marathi - Main", language: "Marathi", url: "https://www.tv9marathi.com/rss/latest-news.xml" }
+          ]
+        },
+        {
+          title: "BBC Marathi (बीबीसी मराठी)",
+          injectTip: false,
+          feeds: [
+            { name: "BBC Marathi - Main", language: "Marathi", url: "https://www.bbc.com/marathi/index.xml" }
+          ]
+        },
+        {
+          title: "Breaking News (English)",
+          injectTip: false,
+          feeds: [
+            { name: "Google News - India", language: "English", url: "https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Google News - India Top", language: "English", url: "https://news.google.com/rss/search?q=India+news+top+stories&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "India Business News", language: "English", url: "https://news.google.com/rss/search?q=India+business+economy+market+news&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "India Tech News", language: "English", url: "https://news.google.com/rss/search?q=India+technology+AI+smartphone+gadget+news&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "India Sports News", language: "English", url: "https://news.google.com/rss/search?q=India+sports+cricket+football+news&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "India Entertainment", language: "English", url: "https://news.google.com/rss/search?q=Bollywood+India+entertainment+movie+news&hl=en-IN&gl=IN&ceid=IN:en" }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Travel",
+      categories: [
+        {
+          title: "Travel & Tourism (India)",
+          injectTip: false,
+          feeds: [
+            { name: "Top Destinations", language: "English", url: "https://news.google.com/rss/search?q=places+to+visit+in+India+tourism&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Incredible India News", language: "English", url: "https://news.google.com/rss/search?q=Indian+tourism+travel+news&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "India Travel Guide", language: "English", url: "https://news.google.com/rss/search?q=India+travel+destinations+hill+stations+beaches&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Adventure & Trekking India", language: "English", url: "https://news.google.com/rss/search?q=adventure+trekking+travel+India+Himalayas&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Heritage & Culture Travel", language: "English", url: "https://news.google.com/rss/search?q=heritage+culture+travel+India+temples+forts&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Road Trips India", language: "English", url: "https://news.google.com/rss/search?q=road+trip+travel+India+highway&hl=en-IN&gl=IN&ceid=IN:en" }
+          ]
+        },
+        {
+          title: "South East Asia Travel",
+          injectTip: false,
+          feeds: [
+            { name: "SE Asia Travel News", language: "English", url: "https://news.google.com/rss/search?q=Southeast+Asia+tourism+travel+destinations&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Thailand Travel", language: "English", url: "https://news.google.com/rss/search?q=Thailand+travel+tourism+Bangkok+Phuket&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Vietnam & Cambodia Travel", language: "English", url: "https://news.google.com/rss/search?q=Vietnam+Cambodia+travel+tourism&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Bali & Indonesia Travel", language: "English", url: "https://news.google.com/rss/search?q=Bali+Indonesia+travel+tourism&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Malaysia Singapore Travel", language: "English", url: "https://news.google.com/rss/search?q=Malaysia+Singapore+travel+tourism&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Philippines & Myanmar Travel", language: "English", url: "https://news.google.com/rss/search?q=Philippines+Myanmar+travel+tourism&hl=en-IN&gl=IN&ceid=IN:en" }
+          ]
+        },
+        {
+          title: "Travel YouTube Channels",
+          injectTip: false,
+          feeds: [
+            { name: "Curly Tales", language: "Hindi/English", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZm3_5MqwRUBJqFMJgDAAZg", isYoutube: true },
+            { name: "Mumbiker Nikhil", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCv3NhQl1D6upCq-nQOLPWGg", isYoutube: true },
+            { name: "Flying Beast", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCtFjPkAEEpWvdcMRVdEE7Cg", isYoutube: true },
+            { name: "Desi Traveller", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCuJLEx8lyOj7LpsPQ5kJmwA", isYoutube: true },
+            { name: "Travel With AK", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCMWfCqFo_WjIWV_zA6V0SMQ", isYoutube: true },
+            { name: "Solo Travel India", language: "Hindi/English", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCjGq4B8dPrj95kM_6hX9mpA", isYoutube: true }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Shopping",
+      categories: [
+        {
+          title: "Price Tracker & Shop Search",
+          injectTip: false,
+          injectShoppingTools: true,
+          feeds: []
+        },
+        {
+          title: "Shopping & Offers News",
+          injectTip: false,
+          feeds: [
+            { name: "Sale & Festival Offers", language: "English", url: "https://news.google.com/rss/search?q=Amazon+OR+Flipkart+OR+Myntra+sale+offers+India&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Price Drop Alerts", language: "English", url: "https://news.google.com/rss/search?q=price+drop+smartphones+gadgets+India&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Electronics Deals", language: "English", url: "https://news.google.com/rss/search?q=laptop+OR+mobile+OR+headphone+deal+price+India&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Fashion & Lifestyle Deals", language: "English", url: "https://news.google.com/rss/search?q=fashion+clothing+footwear+sale+offer+India&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "DesiDime Deals", language: "English", url: "https://www.desidime.com/feeds/deals" },
+            { name: "Coupon & Cashback News", language: "English", url: "https://news.google.com/rss/search?q=cashback+coupon+offer+GoPaisa+CashKaro+India&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Grocery & Daily Deals", language: "English", url: "https://news.google.com/rss/search?q=grocery+daily+essentials+offer+Blinkit+Zepto+Swiggy+Instamart+India&hl=en-IN&gl=IN&ceid=IN:en" },
+            { name: "Festival Sale News", language: "English", url: "https://news.google.com/rss/search?q=Big+Billion+Day+OR+Great+Indian+Sale+OR+Diwali+sale+Amazon+Flipkart+India&hl=en-IN&gl=IN&ceid=IN:en" }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Kitchen",
+      categories: [
+        {
+          title: "Cooking & Recipes",
+          injectTip: false,
+          feeds: [
+            { name: "Swasthi's Recipes", language: "English", url: "https://www.indianhealthyrecipes.com/feed/" },
+            { name: "Dassana's Veg Recipes", language: "English", url: "https://www.vegrecipesofindia.com/feed/" },
+            { name: "My Food Story", language: "English", url: "https://myfoodstory.com/feed/" },
+            { name: "Cook with Manali", language: "English", url: "https://cookwithmanali.com/feed/" },
+            { name: "Ministry of Curry", language: "English", url: "https://ministryofcurry.com/feed/" },
+            { name: "Vegan Richa", language: "English", url: "https://www.veganricha.com/feed/" },
+            { name: "Spice Up The Curry", language: "English", url: "https://www.spiceupthecurry.com/feed/" },
+            { name: "The Curry Guy", language: "English", url: "https://greatcurryrecipes.net/feed/" },
+            { name: "Chitra's Food Book", language: "English", url: "https://www.chitrasfoodbook.com/feed/" },
+            { name: "Sharmi's Passions", language: "English", url: "https://www.sharmispassions.com/feed/" },
+            { name: "Archana's Kitchen", language: "English", url: "https://www.archanaskitchen.com/feed/" },
+            { name: "Manjula's Kitchen", language: "English", url: "https://www.manjulaskitchen.com/feed/" },
+            { name: "Padhu's Kitchen", language: "English", url: "https://www.padhuskitchen.com/feed/" },
+            { name: "Jeyashri's Kitchen", language: "English", url: "https://www.jeyashriskitchen.com/feed/" },
+            { name: "Yummy Tummy", language: "English", url: "https://www.yummytummyaarthi.com/feed/" },
+            { name: "Nisha Madhulika", language: "Hindi", url: "https://nishamadhulika.com/feed/" },
+            { name: "Rak's Kitchen", language: "English", url: "https://feeds.feedburner.com/RaksKitchen" }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Lifestyle",
+      categories: [
+        {
+          title: "Health & Yoga",
+          injectTip: true,
+          feeds: [
+            { name: "Times of India - Health", language: "English", url: "https://timesofindia.indiatimes.com/rssfeeds/2886704.cms" }
+          ]
+        },
+        {
+          title: "Stories & Articles",
+          injectTip: false,
+          feeds: [
+            { name: "Hindi Sahitya Darpan", language: "Hindi", url: "https://www.hindisahityadarpan.in/feeds/posts/default?alt=rss" },
+            { name: "Maharashtra Times", language: "Marathi", url: "https://maharashtratimes.com/rssfeeds/4836692.cms" }
+          ]
+        }
+      ]
+    },
+    {
+      title: "YouTube Series",
+      categories: [
+        {
+          title: "Search & Fetch Episodes",
+          injectTip: false,
+          injectSeriesTool: true,
+          feeds: []
+        },
+        {
+          title: "Short Stories & Series",
+          injectTip: false,
+          feeds: [
+            { name: "Pocket Films", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=pocketfilms", isYoutube: true },
+            { name: "Royal Select", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=RoyalSelect", isYoutube: true },
+            { name: "Large Short Films", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=LargeShortFilms", isYoutube: true },
+            { name: "TVF (The Viral Fever)", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=TheViralFeverVideos", isYoutube: true },
+            { name: "Dice Media", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=DiceMediaIndia", isYoutube: true },
+            { name: "Terribly Tiny Tales", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=terriblytinytales", isYoutube: true },
+            { name: "The Screen Patti", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=TheScreenPatti", isYoutube: true },
+            { name: "Girliyapa", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=Girliyapa", isYoutube: true },
+            { name: "FilterCopy", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=FilterCopy", isYoutube: true },
+            { name: "The Timeliners", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=TheTimeliners", isYoutube: true },
+            { name: "RVCJ Media", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=RVCJMedia", isYoutube: true },
+            { name: "Six Sigma Films", language: "Hindi/Marathi", url: "https://www.youtube.com/feeds/videos.xml?user=SixSigmaFilms", isYoutube: true },
+            { name: "HumaraMovie", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=humaramovie", isYoutube: true },
+            { name: "Gorilla Shorts", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=GorillaShorts", isYoutube: true },
+            { name: "Natak Pictures", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=NatakPictures", isYoutube: true },
+            { name: "Shudh Desi Endings", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=ShudhDesiEndings", isYoutube: true },
+            { name: "Shortfundly", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=Shortfundly", isYoutube: true },
+            { name: "Web Talkies", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=WebTalkies", isYoutube: true },
+            { name: "BhaDiPa", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC6P0P6Q-K1H0_v1vHw6TzXg", isYoutube: true },
+            { name: "Karbhari", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?user=Karbhari", isYoutube: true }
+          ]
+        }
+      ]
+    },
+    {
+      title: "YouTube Videos",
+      categories: [
+        {
+          title: "Cooking Channels",
+          injectTip: false,
+          feeds: [
+            { name: "Sanjeev Kapoor Khazana", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCjJw4F7eHqRtNKzF50k0vRQ", isYoutube: true },
+            { name: "Rajshri Food", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCkEyB7I5MmtM_hC_X2Fzvvw", isYoutube: true },
+            { name: "Hebbar's Kitchen", language: "English", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCk8o4QxL0M6MIqDPVPqXN_w", isYoutube: true },
+            { name: "VahChef", language: "English", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCgQ9U-M8pIqIAh6fPJj8dWw", isYoutube: true },
+            { name: "Kabita's Kitchen", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCChxc2TjcTpeH5Lnjj55tKQ", isYoutube: true },
+            { name: "MadhurasRecipe", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCQG_jzCQpsIVPG02_iXjB0g", isYoutube: true },
+            { name: "MadhurasRecipe Marathi", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCmbua9iiakRr6nuCXxxsKSQ", isYoutube: true },
+            { name: "Sarita's Kitchen", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC5x4u6kU52hgTtLlBaHTSKg", isYoutube: true },
+            { name: "Gharcha Swaad", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCkbpO3eJlGVnrqGGUkL8cGw", isYoutube: true },
+            { name: "Marathi Kitchen", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCotmlEU8SV2vGk1XxrCPB3w", isYoutube: true },
+            { name: "Ras Kitchen", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCVs7k1IfvKpnhKZ71NsEIUg", isYoutube: true },
+            { name: "Crazy Foody Ranjita", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCwjTibvh8ZgbNcAubQ17J5w", isYoutube: true },
+            { name: "Marathi Baana", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCltEPZ0rCUmZBTJEm5VSIOg", isYoutube: true },
+            { name: "Nathdeep's Kitchen", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCOM7vmYDpWuJTlpxvXEpQLQ", isYoutube: true },
+            { name: "Ruchkar Mejwani", language: "Marathi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UC2Voa6RLYJcBNErjs9PIE3g", isYoutube: true },
+            { name: "Kunal Kapur", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCGG2Jjzzb5WotOEwzYmgEgg", isYoutube: true },
+            { name: "Your Food Lab", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCe2JAC5FUfbxLCfAvBWmNJA", isYoutube: true },
+            { name: "CookingShooking Hindi", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCTbNOCtAGaqOEnLMeo3JTeg", isYoutube: true },
+            { name: "Nisha Madhulika", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=NishaMadhulika", isYoutube: true },
+            { name: "Bharatzkitchen", language: "Hindi", url: "https://www.youtube.com/feeds/videos.xml?user=bharatzkitchen", isYoutube: true }
+          ]
+        }
+      ]
+    }
+  ];
+
+  const container = document.getElementById('feed-container');
+  const rss2jsonUrl = 'https://api.rss2json.com/v1/api.json?rss_url=';
+
+  function renderSectionContent(sectionEl, section) {
+    section.categories.forEach(cat => {
+      if (cat.injectTip) {
+        const tipSection = document.createElement('div');
+        tipSection.className = 'feed-section';
+        const dailyMetabolicTip = getRandomTip(wellnessTips);
+        const dailyWomensTip = getRandomTip(womensWellnessTips);
+        
+        tipSection.innerHTML = `
+          <div class="grid">
+            <div class="insight-card">
+              <h3>&#10024; Daily Metabolic Insight</h3>
+              <p><strong>Did you know?</strong> ${dailyMetabolicTip}</p>
+            </div>
+            <div class="insight-card">
+              <h3>&#127804; Women's Wellness Focus</h3>
+              <p><strong>Vital Tip:</strong> ${dailyWomensTip}</p>
+            </div>
+          </div>
+        `;
+        sectionEl.appendChild(tipSection);
+      }
+
+      if (cat.injectShoppingTools) {
+        const toolsSection = document.createElement('div');
+        toolsSection.className = 'feed-section';
+        toolsSection.innerHTML = `
+          <style>
+            .shop-tab-bar {
+              display: flex;
+              border-bottom: 2px solid #000;
+              margin-bottom: 0;
+              background: #e0e1dd;
+            }
+            .shop-tab-bar button {
+              flex: 1;
+              padding: 10px 4px;
+              border: none;
+              border-right: 2px solid #000;
+              border-bottom: 2px solid #000;
+              background: #e0e1dd;
+              font-family: 'IBM Plex Mono', monospace;
+              font-size: 10px;
+              font-weight: bold;
+              text-transform: uppercase;
+              cursor: pointer;
+              letter-spacing: 0.05em;
+            }
+            .shop-tab-bar button:last-child { border-right: none; }
+            .shop-tab-bar button.active-tab { background: #e9c46a; border-bottom: 3px solid #000; }
+            .shop-tab-panel {
+              border: 2px solid #000;
+              border-top: none;
+              padding: 16px;
+              background: #f5efe1;
+              margin-bottom: 20px;
+            }
+            .shop-cat-chips {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 7px;
+              margin-bottom: 12px;
+            }
+            .shop-cat-chips button {
+              padding: 6px 12px;
+              border: 2px solid #000;
+              background: #ece0c4;
+              font-size: 12px;
+              font-weight: bold;
+              cursor: pointer;
+              border-radius: 20px;
+            }
+            .shop-cat-chips button:hover { background: #e9c46a; }
+            .shop-input {
+              width: 100%;
+              padding: 11px;
+              border: 2px solid #000;
+              font-size: 14px;
+              box-sizing: border-box;
+              margin-bottom: 10px;
+              background: #fff;
+            }
+            .shop-portal-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 8px;
+              margin-bottom: 8px;
+            }
+            .shop-portal-grid button, .shop-action-row button {
+              padding: 11px 6px;
+              border: 2px solid #000;
+              font-weight: bold;
+              cursor: pointer;
+              font-size: 12px;
+              width: 100%;
+            }
+            .shop-action-row {
+              display: flex;
+              gap: 8px;
+              margin-top: 4px;
+            }
+            .shop-action-row button { flex: 1; }
+            .btn-amazon   { background: #ff9900; color: #000; }
+            .btn-flipkart { background: #2874f0; color: #fff; }
+            .btn-myntra   { background: #f04e98; color: #fff; }
+            .btn-meesho   { background: #f43397; color: #fff; }
+            .btn-nykaa    { background: #fc2779; color: #fff; }
+            .btn-snapdeal { background: #e40000; color: #fff; }
+            .btn-tatacliq { background: #6b2fa0; color: #fff; }
+            .btn-compare  { background: #3d405b; color: #fff; }
+            .btn-history  { background: #81b29a; color: #000; }
+            .btn-google   { background: #4285f4; color: #fff; }
+            .cashback-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 10px;
+            }
+            .cashback-card {
+              border: 2px solid #000;
+              padding: 12px 10px;
+              text-align: center;
+              background: #fffdf5;
+              cursor: pointer;
+            }
+            .cashback-card:hover { background: #e9c46a; }
+            .cashback-card .cb-name { font-weight: bold; font-size: 13px; }
+            .cashback-card .cb-desc { font-size: 10px; font-family: 'IBM Plex Mono', monospace; margin-top: 4px; opacity: 0.7; }
+            .wish-input-row { display: flex; gap: 8px; margin-bottom: 8px; }
+            .wish-input-row input { flex: 1; padding: 10px; border: 2px solid #000; font-size: 13px; background: #fff; }
+            #wishlist-items { margin-top: 12px; }
+            .sale-cal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+            .sale-cal-card { border: 2px solid #000; padding: 12px; background: #fffdf5; }
+            .sale-cal-card .sc-name { font-weight: bold; font-size: 13px; margin-bottom: 4px; }
+            .sale-cal-card .sc-date { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #e07a5f; font-weight: bold; }
+            .sale-cal-card .sc-desc { font-size: 11px; margin-top: 5px; opacity: 0.8; }
+            .shop-section-label {
+              font-family: 'IBM Plex Mono', monospace;
+              font-size: 9px;
+              text-transform: uppercase;
+              letter-spacing: 0.12em;
+              font-weight: bold;
+              margin: 14px 0 7px;
+              opacity: 0.6;
+            }
+          </style>
+
+          <!-- TAB BAR -->
+          <div class="shop-tab-bar">
+            <button id="stb-search"   class="active-tab" onclick="shopTab('search')">🔍 Search</button>
+            <button id="stb-wishlist"             onclick="shopTab('wishlist')">❤️ Wishlist</button>
+            <button id="stb-deals"               onclick="shopTab('deals')">🔥 Sales Cal</button>
+            <button id="stb-cashback"            onclick="shopTab('cashback')">💰 Cashback</button>
+          </div>
+
+          <!-- TAB: SEARCH -->
+          <div id="shop-tab-search" class="shop-tab-panel">
+            <div class="shop-section-label">Quick Categories</div>
+            <div class="shop-cat-chips">
+              <button onclick="setShopCategory('Smartphones')">📱 Mobile</button>
+              <button onclick="setShopCategory('Smart TV')">📺 TV</button>
+              <button onclick="setShopCategory('Laptop')">💻 Laptop</button>
+              <button onclick="setShopCategory('Headphones')">🎧 Audio</button>
+              <button onclick="setShopCategory('Refrigerator')">🧊 Fridge</button>
+              <button onclick="setShopCategory('Washing Machine')">🫧 Washer</button>
+              <button onclick="setShopCategory('Saree')">👘 Saree</button>
+              <button onclick="setShopCategory('Kurta')">👕 Kurta</button>
+              <button onclick="setShopCategory('Sneakers')">👟 Shoes</button>
+              <button onclick="setShopCategory('Lipstick')">💄 Beauty</button>
+              <button onclick="setShopCategory('Pressure Cooker')">🍲 Kitchen</button>
+              <button onclick="setShopCategory('Atta 10kg')">🌾 Grocery</button>
+            </div>
+
+            <div class="shop-section-label">Product Name or Paste URL</div>
+            <input class="shop-input" id="shop-q" type="text" placeholder="e.g. Samsung Galaxy S24, OnePlus TV, Nike shoes...">
+
+            <div class="shop-section-label">Shop on</div>
+            <div class="shop-portal-grid">
+              <button class="btn-amazon"   onclick="shopSearch('amazon')">🛒 Amazon</button>
+              <button class="btn-flipkart" onclick="shopSearch('flipkart')">🛍 Flipkart</button>
+              <button class="btn-myntra"   onclick="shopSearch('myntra')">👗 Myntra</button>
+              <button class="btn-meesho"   onclick="shopSearch('meesho')">🛍 Meesho</button>
+              <button class="btn-nykaa"    onclick="shopSearch('nykaa')">💄 Nykaa</button>
+              <button class="btn-snapdeal" onclick="shopSearch('snapdeal')">⚡ Snapdeal</button>
+              <button class="btn-tatacliq" onclick="shopSearch('tatacliq')">🏷 Tata Cliq</button>
+              <button class="btn-google"   onclick="shopSearch('google')">🔍 Google Shop</button>
+            </div>
+
+            <div class="shop-section-label">Power Actions</div>
+            <div class="shop-action-row">
+              <button class="btn-compare" onclick="shopCompare()">⚖️ Compare Prices<br><span style="font-size:10px;font-weight:normal;">Amazon + Flipkart + Google</span></button>
+              <button class="btn-history" onclick="checkPriceHistory()">📈 Price History<br><span style="font-size:10px;font-weight:normal;">CamelCamelCamel</span></button>
+            </div>
+          </div>
+
+          <!-- TAB: WISHLIST -->
+          <div id="shop-tab-wishlist" class="shop-tab-panel" style="display:none;">
+            <div class="shop-section-label">Add to Wishlist</div>
+            <div class="wish-input-row">
+              <input id="wish-name" type="text" placeholder="Product name...">
+              <input id="wish-note" type="text" placeholder="Note / size / colour...">
+            </div>
+            <button onclick="addToWishlist()" style="width:100%;padding:11px;border:2px solid #000;background:#e9c46a;font-weight:bold;font-size:14px;cursor:pointer;margin-bottom:4px;">+ Add to Wishlist</button>
+            <div id="wishlist-items"></div>
+          </div>
+
+          <!-- TAB: SALES CALENDAR -->
+          <div id="shop-tab-deals" class="shop-tab-panel" style="display:none;">
+            <div class="shop-section-label">Upcoming & Recurring Sale Events</div>
+            <div class="sale-cal-grid">
+              <div class="sale-cal-card">
+                <div class="sc-name">🛒 Amazon Great Indian Festival</div>
+                <div class="sc-date">Oct (Navratri / Diwali)</div>
+                <div class="sc-desc">Biggest Amazon India sale. Electronics, fashion, appliances.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">🛍 Flipkart Big Billion Days</div>
+                <div class="sc-date">Oct (Navratri)</div>
+                <div class="sc-desc">Flipkart's flagship sale — mobiles, TVs, large appliances.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">👗 Myntra End of Reason Sale</div>
+                <div class="sc-date">Jun & Dec</div>
+                <div class="sc-desc">Twice yearly — fashion, footwear, beauty up to 80% off.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">💄 Nykaa Pink Friday Sale</div>
+                <div class="sc-date">Nov (Black Friday week)</div>
+                <div class="sc-desc">Best time to stock up on skincare, makeup, haircare.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">🛍 Meesho Mega Sale</div>
+                <div class="sc-date">Multiple times/year</div>
+                <div class="sc-desc">Budget fashion & home goods. Best for ethnic wear deals.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">🏷 Tata Cliq Luxury Sale</div>
+                <div class="sc-date">Diwali & New Year</div>
+                <div class="sc-desc">Premium brands — Armani, Tommy, Titan, Apple.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">⚡ Snapdeal Unbox Diwali</div>
+                <div class="sc-date">Oct-Nov</div>
+                <div class="sc-desc">Good for value-for-money electronics and home goods.</div>
+              </div>
+              <div class="sale-cal-card">
+                <div class="sc-name">🛒 Amazon Prime Day</div>
+                <div class="sc-date">Jul (Prime members)</div>
+                <div class="sc-desc">Exclusive deals for Prime members. Best for electronics.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: CASHBACK -->
+          <div id="shop-tab-cashback" class="shop-tab-panel" style="display:none;">
+            <div class="shop-section-label">Cashback & Coupon Portals</div>
+            <p style="font-size:12px;font-family:IBM Plex Mono,monospace;margin:0 0 14px;opacity:0.7;">Always start your shopping from these portals to earn cashback on every order.</p>
+            <div class="cashback-grid">
+              <div class="cashback-card" onclick="window.open('https://www.cashkaro.com','_blank')">
+                <div class="cb-name">💰 CashKaro</div>
+                <div class="cb-desc">Cashback on Amazon, Flipkart, Myntra & 500+ stores</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.gopaisa.com','_blank')">
+                <div class="cb-name">🪙 GoPaisa</div>
+                <div class="cb-desc">Cashback + coupons across 1000+ Indian stores</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.couponduniya.in','_blank')">
+                <div class="cb-name">🎟 CouponDunia</div>
+                <div class="cb-desc">Promo codes & offers for all major portals</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.desidime.com','_blank')">
+                <div class="cb-name">🔥 DesiDime</div>
+                <div class="cb-desc">Community-shared deals, freebies & loots</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.pennyful.in','_blank')">
+                <div class="cb-name">🏅 Pennyful</div>
+                <div class="cb-desc">Cashback specifically for Indian shoppers</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.magicpin.in','_blank')">
+                <div class="cb-name">📍 Magicpin</div>
+                <div class="cb-desc">Cashback on local stores, Zomato, Swiggy & more</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.grabon.in','_blank')">
+                <div class="cb-name">🎯 GrabOn</div>
+                <div class="cb-desc">Coupon codes for 1500+ brands</div>
+              </div>
+              <div class="cashback-card" onclick="window.open('https://www.smartprix.com','_blank')">
+                <div class="cb-name">📊 Smartprix</div>
+                <div class="cb-desc">Price comparison & alerts for electronics</div>
+              </div>
+            </div>
+            <div class="shop-section-label" style="margin-top:18px;">Pro Tip</div>
+            <p style="font-size:12px;border:2px solid #000;padding:12px;background:#fffdf5;margin:0;">
+              💡 <strong>Stack your savings:</strong> Use a cashback portal link + credit card offers + coupon code together for maximum discount on any purchase.
+            </p>
+          </div>
+        `;
+        sectionEl.appendChild(toolsSection);
+        // Initialise wishlist on render
+        setTimeout(function() { renderWishlist(); }, 100);
+      }
+
+      if (cat.injectSeriesTool) {
+        const toolsSection = document.createElement('div');
+        toolsSection.className = 'feed-section';
+        toolsSection.innerHTML = `
+          <style>
+            .series-tracker-box {
+              border: 2px solid #000;
+              padding: 16px;
+              margin-bottom: 20px;
+              background: #f5efe1;
+            }
+            .series-tracker-box h3 {
+              font-family: 'IBM Plex Mono', monospace;
+              font-size: 10px;
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              margin: 0 0 10px;
+            }
+            .series-tracker-box label {
+              font-family: 'IBM Plex Mono', monospace;
+              font-size: 11px;
+              font-weight: bold;
+              display: block;
+              margin-bottom: 4px;
+            }
+            .series-tracker-box input {
+              width: 100%;
+              padding: 10px;
+              border: 2px solid #000;
+              font-size: 14px;
+              box-sizing: border-box;
+              margin-bottom: 10px;
+              background: #fff;
+            }
+            .series-tracker-box .btn-row {
+              display: flex;
+              gap: 8px;
+              flex-wrap: wrap;
+            }
+            .series-tracker-box .btn-row button {
+              flex: 1;
+              min-width: 100px;
+              padding: 10px;
+              border: 2px solid #000;
+              font-weight: bold;
+              cursor: pointer;
+              font-size: 12px;
+              text-transform: uppercase;
+              background: #e07a5f;
+              transition: background 0.2s;
+            }
+            .series-tracker-box .btn-row button:hover {
+              filter: brightness(0.9);
+            }
+          </style>
+          <div class="series-tracker-box">
+            <h3>&#127902; Search & Fetch Episodes</h3>
+            <label for="series-tracker-input">Paste YouTube Playlist or Channel Link:</label>
+            <input type="text" id="series-tracker-input" placeholder="e.g. https://www.youtube.com/playlist?list=...">
+            <div class="btn-row">
+              <button onclick="fetchSeriesEpisodes()">&#128269; Fetch Episodes</button>
+            </div>
+            <div id="series-results-grid" class="grid" style="margin-top: 15px; padding-top: 15px; border-top: 2px dashed #000;"></div>
+          </div>
+        `;
+        sectionEl.appendChild(toolsSection);
+      }
+
+      cat.feeds.forEach(feed => {
+        const feedSection = document.createElement('div');
+        feedSection.className = 'feed-section';
+        
+        const safeId = `grid-${feed.name.replace(/[^a-zA-Z0-9]/g, '')}`;
+        
+        feedSection.innerHTML = `
+          <h2>
+            ${feed.name} 
+            <span class="language-tag">${feed.language}</span>
+          </h2>
+          <div class="grid" id="${safeId}">
+            <p class="loading">Loading latest content...</p>
+          </div>
+        `;
+        
+        sectionEl.appendChild(feedSection);
+        const grid = document.getElementById(safeId);
+
+        fetch(rss2jsonUrl + encodeURIComponent(feed.url))
+          .then(response => response.json())
+          .then(data => {
+            grid.innerHTML = '';
+
+            if (data.status !== 'ok') {
+              grid.innerHTML = '<p>Failed to load feed. The publisher may have restricted access.</p>';
+              return;
+            }
+
+            // Filter out rss2json injected ad/promo items for YouTube feeds (they don't link to youtube.com)
+            const validItems = feed.isYoutube
+              ? data.items.filter(item => item.link && item.link.includes('youtube.com'))
+              : data.items;
+            const unreadItems = validItems.filter(item => !readArticles.includes(item.link));
+            unreadItems.sort(function(a, b) {
+              return new Date(b.pubDate) - new Date(a.pubDate);
+            });
+
+            if (unreadItems.length === 0) {
+               grid.innerHTML = '<p>You are all caught up! No new articles right now.</p>';
+               return;
+            }
+
+            feedPageState[safeId] = { items: unreadItems, displayed: 0, feed: feed };
+            renderFeedBatch(grid, safeId);
+          })
+          .catch(error => {
+            grid.innerHTML = '<p>Error fetching data. Check your network connection.</p>';
+          });
+      });
+    });
+  }
+
+  function getTranslatedLink(link, isYoutube) {
+    if (isYoutube) return link;
+    const lang = document.getElementById('lang-select').value;
+    const tl = lang === 'hindi' ? 'hi' : lang === 'marathi' ? 'mr' : 'en';
+    return 'https://translate.google.com/translate?sl=auto&tl=' + tl + '&u=' + encodeURIComponent(link);
+  }
+
+  function renderFeedBatch(grid, stateKey) {
+    var state = feedPageState[stateKey];
+    if (!state) return;
+    var items = state.items;
+    var displayed = state.displayed;
+    var feed = state.feed;
+    var batch = items.slice(displayed, displayed + BATCH_SIZE);
+    if (!batch.length) {
+      grid.innerHTML = '<p style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;text-align:center;padding:20px 0;">All caught up! No more articles.</p>';
+      return;
+    }
+    var frag = document.createDocumentFragment();
+    batch.forEach(function(item) {
+      var tempDiv = document.createElement("div");
+      tempDiv.innerHTML = item.description;
+      var cleanText = tempDiv.textContent || tempDiv.innerText || "";
+      var words = cleanText.trim().split(/\s+/).filter(function(w) { return w.length > 0; });
+      var summary = "";
+      if (words.length <= 500) {
+        summary = words.join(" ");
+      } else {
+        var sentences = cleanText.match(/[^.!?]*[.!?]+/g) || [cleanText];
+        var kept = [], count = 0;
+        for (var si = 0; si < sentences.length; si++) {
+          var sw = sentences[si].trim().split(/\s+/).filter(function(w) { return w.length > 0; });
+          if (count + sw.length > 500) break;
+          kept.push(sentences[si].trim());
+          count += sw.length;
+        }
+        summary = kept.join(" ");
+      }
+      if (summary.trim() === "") {
+        summary = "Tap below to view the full text or video directly from the source.";
+      }
+      var timeAgo = '';
+      if (item.pubDate) {
+        var pubDate = new Date(item.pubDate);
+        var now = new Date();
+        var diffMs = now - pubDate;
+        var diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+        var diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        if (diffHours < 1) timeAgo = 'Just now';
+        else if (diffHours < 24) timeAgo = diffHours + 'h ago';
+        else timeAgo = diffDays + 'd ago';
+      }
+      var feedItem = document.createElement('div');
+      feedItem.className = 'feed-item';
+      feedItem.setAttribute('data-link', item.link);
+      var safeTitle = item.title.replace(/"/g, '&quot;');
+      var ytAttr = feed.isYoutube ? ' data-isyoutube="true"' : '';
+      feedItem.innerHTML =
+        '<span class="headline reader-trigger" data-url="' + item.link + '" data-title="' + safeTitle + '" data-feed="' + feed.name + '" data-date="' + (item.pubDate || '') + '"' + ytAttr + '>' + item.title + '</span>' +
+        '<p class="description">' + summary + '</p>' +
+        '<div class="meta">' +
+          '<span>' + timeAgo + ' — ' + feed.name + '</span>' +
+          '<button class="view-orig-btn" onclick="window.open(\'' + getTranslatedLink(item.link, feed.isYoutube) + '\',\'_blank\')">↗ Original site</button>' +
+        '</div>';
+      frag.appendChild(feedItem);
+    });
+    grid.appendChild(frag);
+    var newDisplayed = displayed + batch.length;
+    var remaining = items.length - newDisplayed;
+    state.displayed = newDisplayed;
+    var oldWrap = grid.querySelector('.load-more-wrap');
+    if (oldWrap) oldWrap.remove();
+    var wrap = document.createElement('div');
+    wrap.className = 'load-more-wrap';
+    if (remaining > 0) {
+      var btn = document.createElement('button');
+      btn.className = 'load-more-btn';
+      btn.setAttribute('data-statekey', stateKey);
+      btn.innerHTML = '↓ Load more <span style="opacity:0.6;font-weight:400;">(clears read · ' + remaining + ' remaining)</span>';
+      wrap.appendChild(btn);
+    } else {
+      var indicator = document.createElement('div');
+      indicator.className = 'load-more-indicator';
+      indicator.setAttribute('data-statekey', stateKey);
+      indicator.innerHTML = '✓ All caught up · <span style="text-decoration:underline;">clear read</span>';
+      wrap.appendChild(indicator);
+    }
+    grid.appendChild(wrap);
+  }
+
+  // Load-more / clear-read click handler
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest) return;
+    var trigger = e.target.closest('.load-more-btn, .load-more-indicator');
+    if (!trigger) return;
+    var stateKey = trigger.getAttribute('data-statekey');
+    var state = feedPageState[stateKey];
+    if (!state) return;
+    var grid = document.getElementById(stateKey);
+    if (!grid) return;
+    var items = grid.querySelectorAll('.feed-item');
+    items.forEach(function(el) {
+      var link = el.getAttribute('data-link');
+      if (link && readArticles.indexOf(link) === -1) {
+        readArticles.push(link);
+      }
+    });
+    localStorage.setItem('readArticles', JSON.stringify(readArticles));
+    grid.innerHTML = '';
+    renderFeedBatch(grid, stateKey);
+  });
+
+  const btnContainer = document.getElementById('section-buttons');
+  const sectionColors = ['#f0a08a', '#b8d5c6', '#7ba0c4', '#e8cca8', '#d4b0f0', '#f2dca0', '#81b29a'];
+
+  mainSections.forEach((section, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'section-btn';
+    btn.innerText = section.title;
+    btn.style.backgroundColor = sectionColors[index];
+    btnContainer.appendChild(btn);
+
+    const sectionContent = document.createElement('div');
+    sectionContent.className = 'section-content';
+    sectionContent.id = 'sec-content-' + index;
+    container.appendChild(sectionContent);
+
+    let loaded = false;
+
+    btn.addEventListener('click', function() {
+      const allBtns = btnContainer.querySelectorAll('.section-btn');
+      const allContents = container.querySelectorAll('.section-content');
+      const isOpening = !sectionContent.classList.contains('open');
+
+      allBtns.forEach(b => b.classList.remove('active'));
+      allContents.forEach(c => c.classList.remove('open'));
+
+      if (isOpening) {
+        btn.classList.add('active');
+        sectionContent.classList.add('open');
+      }
+
+      if (isOpening && !loaded) {
+        loaded = true;
+        renderSectionContent(sectionContent, section);
+      }
+    });
+  });
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,mr'
+    }, 'google_translate_element');
+
+    setTimeout(function() {
+      const combo = document.querySelector('.goog-te-combo');
+      if (combo) {
+        const match = document.cookie.match(/googtrans=\/en\/(\w+)/);
+        combo.value = match ? match[1] : 'mr';
+        combo.dispatchEvent(new Event('change'));
+      }
+    }, 1500);
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function() {
+    const val = this.value;
+    const langMap = { english: 'en', hindi: 'hi', marathi: 'mr' };
+    const tl = langMap[val];
+
+    if (tl === 'en') {
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    } else {
+      document.cookie = 'googtrans=/en/' + tl + '; path=/;';
+    }
+
+    const gtCombo = document.querySelector('.goog-te-combo');
+    if (gtCombo) {
+      gtCombo.value = tl;
+      gtCombo.dispatchEvent(new Event('change'));
+    }
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', resetHistory);
+
+  // ==========================================
+  // ARTICLE READER PANEL
+  // ==========================================
+  const READER_TIMEOUT_MS = 5000;
+  let _readerArticleUrl = '';
+  let _readerFontSize = 17;
+
+  function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  function xhrFetch(url, timeoutMs) {
+    return new Promise(function(resolve, reject) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.timeout = timeoutMs || READER_TIMEOUT_MS;
+      xhr.setRequestHeader('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8');
+      xhr.onload = function() { resolve(xhr.responseText); };
+      xhr.onerror = function() { reject(new Error('XHR failed')); };
+      xhr.ontimeout = function() { reject(new Error('Timeout')); };
+      xhr.send();
+    });
+  }
+
+  // Extremely robust regex that catches almost any variation of a YouTube URL
+  function getYoutubeVideoId(url) {
+    if (!url) return null;
+    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|shorts\/|live\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  }
+
+
+  // ==========================================
+  // AD-FREE VIDEO PLAYER (Invidious / Piped fallback chain)
+  // ==========================================
+  // Public instances — ordered by reliability.
+  // If one fails (iframe error / blocked), the next is tried automatically.
+  var ADFREE_INSTANCES = [
+    { name: 'Invidious (yt.cdaut.de)',   embedBase: 'https://yt.cdaut.de/embed/'         },
+    { name: 'Invidious (invidious.nerdvpn.de)', embedBase: 'https://invidious.nerdvpn.de/embed/' },
+    { name: 'Piped (piped.video)',        embedBase: 'https://piped.video/embed/'         },
+    { name: 'Piped (watch.whatever.social)', embedBase: 'https://watch.whatever.social/embed/' },
+    { name: 'YouTube (fallback)',         embedBase: 'https://www.youtube.com/embed/'     }
+  ];
+
+  var _currentVid = null;
+  var _currentInstanceIdx = 0;
+
+  function buildEmbedSrc(instanceIdx, vid, params) {
+    var base = ADFREE_INSTANCES[instanceIdx].embedBase;
+    return base + vid + (params || '?rel=0&autoplay=1&playsinline=1');
+  }
+
+  function tryNextInstance() {
+    _currentInstanceIdx++;
+    if (_currentInstanceIdx >= ADFREE_INSTANCES.length) {
+      // All instances exhausted — show open-in-app message
+      var statusEl = document.getElementById('player-status');
+      if (statusEl) statusEl.textContent = 'All players failed. Please use Open in YouTube App below.';
+      return;
+    }
+    var iframe = document.getElementById('adfree-iframe');
+    var statusEl = document.getElementById('player-status');
+    if (iframe) {
+      var inst = ADFREE_INSTANCES[_currentInstanceIdx];
+      if (statusEl) statusEl.textContent = 'Trying: ' + inst.name + '...';
+      iframe.src = buildEmbedSrc(_currentInstanceIdx, _currentVid, '?rel=0&autoplay=1&playsinline=1');
+    }
+  }
+
+  function renderAdFreePlayer(vid, title, url) {
+    _currentVid = vid;
+    _currentInstanceIdx = 0;
+    var src = buildEmbedSrc(0, vid, '?rel=0&autoplay=1&playsinline=1');
+
+    // Clean video-only view — back button is the floating pill already on screen
+    var html =
+      '<div class="reader-video-wrap">' +
+        '<iframe id="adfree-iframe" class="reader-video-embed"' +
+        ' src="' + src + '"' +
+        ' frameborder="0"' +
+        ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"' +
+        ' allowfullscreen' +
+        ' referrerpolicy="no-referrer">' +
+        '</iframe>' +
+      '</div>' +
+      // Minimal status strip + next-player button — thin, unobtrusive
+      '<div id="player-status-bar" style="background:#1a1a1a;padding:6px 12px;display:flex;align-items:center;justify-content:space-between;">' +
+        '<span id="player-status" style="font-size:9px;color:#e9c46a;font-family:monospace;letter-spacing:0.06em;">▶ ad-free</span>' +
+        '<button onclick="tryNextInstance()" style="background:none;border:1px solid #e9c46a;color:#e9c46a;padding:3px 10px;font-size:10px;cursor:pointer;">⟳ try next</button>' +
+      '</div>';
+
+    return html;
+  }
+
+  function openReader(url, title, feedName, pubDate, isYoutube) {
+    _readerArticleUrl = url;
+    var backdrop = document.getElementById('reader-backdrop');
+    var panel = document.getElementById('reader-panel');
+    backdrop.classList.add('active');
+    panel.classList.add('open');
+    document.getElementById('reader-source').textContent = feedName || 'Article';
+    var extLink = document.getElementById('reader-ext-link');
+    extLink.onclick = function() { window.open(getTranslatedLink(url, false), '_blank'); };
+    document.getElementById('reader-progress').style.width = '0%';
+    document.body.style.overflow = 'hidden';
+
+    var vid = getYoutubeVideoId(url);
+
+    if (vid || isYoutube) {
+      document.getElementById('reader-font-dec').style.display = 'none';
+      document.getElementById('reader-font-inc').style.display = 'none';
+      document.getElementById('video-float-back').style.display = 'block';
+      // Hide topbar & progress so video fills the full panel
+      document.querySelector('.reader-topbar').style.display = 'none';
+      document.getElementById('reader-progress').style.display = 'none';
+      document.getElementById('reader-scroll').style.padding = '0';
+
+      var embedHtml;
+      if (vid) {
+        // Use ad-free player chain
+        embedHtml = renderAdFreePlayer(vid, title, url);
+      } else {
+        // No extractable video ID — show fallback message
+        embedHtml =
+          '<div style="padding:40px 20px; text-align:center; font-family:\'IBM Plex Mono\',monospace; font-size:12px;">Video preview not available.</div>' +
+          '<h1 class="reader-article-title" style="padding:15px 20px 0">' + escapeHtml(title) + '</h1>' +
+          '<div style="text-align:center; padding:20px;">' +
+            '<button onclick="closeReader()" style="background:#e9c46a;color:#000;border:2px solid #000;padding:12px 20px;font-weight:bold;font-size:16px;cursor:pointer;width:100%;margin-bottom:12px;">&larr; Back to Feed</button><br>' +
+            '<button onclick="window.open(\'' + url + '\',\'_blank\')" style="background:#e07a5f;color:#000;border:2px solid #000;padding:12px 20px;font-weight:bold;font-size:16px;cursor:pointer;width:100%;">&#9654; Open in YouTube App</button>' +
+          '</div>';
+      }
+
+      document.getElementById('reader-content').innerHTML = embedHtml;
+      var scrollEl = document.getElementById('reader-scroll');
+      scrollEl.scrollTop = 0;
+      return;
+    }
+
+    if (url.indexOf('ytchannel:') === 0) {
+      document.getElementById('reader-font-dec').style.display = 'none';
+      document.getElementById('reader-font-inc').style.display = 'none';
+      document.getElementById('video-float-back').style.display = 'block';
+      var chId = url.slice(10);
+      var channelUrl = 'https://www.youtube.com/channel/' + chId;
+      extLink.onclick = function() { window.open(channelUrl, '_blank'); };
+      
+      var embedHtml = '<div class="reader-video-wrap">' +
+          '<iframe class="reader-video-embed" src="https://www.youtube.com/embed?listType=user_uploads&list=' + chId + '&rel=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>' +
+        '</div>' +
+        '<h1 class="reader-article-title" style="padding:15px 20px 0">' + escapeHtml(title) + '</h1>' +
+        '<div style="text-align:center; padding: 25px 20px;">' +
+           '<button onclick="closeReader()" style="background:#e9c46a; color:#000000; border:2px solid #000000; padding:12px 20px; font-weight:bold; font-size:16px; cursor:pointer; width:100%; margin-bottom:15px;">&larr; Back to Feed</button><br>' +
+           '<button onclick="makeLandscape()" style="background:#a8dadc; color:#000000; border:2px solid #000000; padding:12px 20px; font-weight:bold; font-size:16px; cursor:pointer; width:100%; margin-bottom:15px;">&#10521; View in Landscape (Fullscreen)</button><br>' +
+           '<button onclick="window.open(\'' + channelUrl + '\', \'_blank\')" style="background:#e07a5f; color:#000000; border:2px solid #000000; padding:12px 20px; font-weight:bold; font-size:16px; cursor:pointer; width:100%;">&#9654; Open in YouTube App</button>' +
+        '</div>';
+        
+      document.getElementById('reader-content').innerHTML = embedHtml;
+      var scrollEl = document.getElementById('reader-scroll');
+      scrollEl.scrollTop = 0;
+      return;
+    }
+
+    document.getElementById('reader-font-dec').style.display = '';
+    document.getElementById('reader-font-inc').style.display = '';
+    document.getElementById('video-float-back').style.display = 'none';
+    document.querySelector('.reader-topbar').style.display = '';
+    document.getElementById('reader-progress').style.display = '';
+    document.getElementById('reader-scroll').style.padding = '';
+    document.getElementById('reader-content').innerHTML = '<div class="reader-status">Loading article...</div>';
+    fetchArticleLocal(url, title, feedName, pubDate);
+  }
+
+  function closeReader() {
+    document.getElementById('video-float-back').style.display = 'none';
+    document.querySelector('.reader-topbar').style.display = '';
+    document.getElementById('reader-progress').style.display = '';
+    document.getElementById('reader-scroll').style.padding = '';
+    var backdrop = document.getElementById('reader-backdrop');
+    var panel = document.getElementById('reader-panel');
+    backdrop.classList.remove('active');
+    panel.classList.remove('open');
+    document.body.style.overflow = '';
+    _readerArticleUrl = '';
+  }
+
+  function fetchArticleLocal(url, title, feedName, pubDate) {
+    var proxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(url);
+    var fallbackUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+
+    function tryFetch(primary, secondary) {
+      xhrFetch(primary, READER_TIMEOUT_MS).then(function(html) {
+        var extracted = extractWebArticle(html, url);
+        if (extracted && extracted.length > 300) {
+          renderArticleContent(extracted, title, feedName, pubDate, url);
+        } else {
+          throw new Error('Content too short');
+        }
+      }).catch(function() {
+        if (secondary) {
+          tryFetch(secondary, null);
+        } else {
+          renderArticleFallback(url, title, feedName, pubDate);
+        }
+      });
+    }
+
+    tryFetch(proxyUrl, fallbackUrl);
+  }
+
+  function extractWebArticle(html, baseUrl) {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+    var article = extractMainContent(doc, baseUrl, false);
+    if (!article || article.length < 300) {
+      article = extractMainContent(doc, baseUrl, true);
+    }
+    return article;
+  }
+
+  function extractMainContent(doc, baseUrl, aggressive) {
+    var selectors = [
+      'article[class*="article"]', 'article[class*="story"]', 'article[class*="post"]',
+      'article[class*="content"]', 'article[class*="main"]', 'article[class*="single"]',
+      'article[class*="entry"]',
+      '[class*="article-body"]', '[class*="story-body"]', '[class*="post-content"]',
+      '[class*="entry-content"]', '[class*="article-content"]', '[class*="article__content"]',
+      '[class*="article_text"]', '[class*="story-text"]', '[class*="article-detail"]',
+      '[class*="main-content"]', '[class*="content-main"]', '[class*="field-item"]',
+      '[class*="article-full"]', '[class*="full-article"]',
+      '[property="articleBody"]', '[itemprop="articleBody"]',
+      'main', '[role="main"]', '.main-content', '#main-content',
+      '.post-body', '.entry-body', '.articleBody',
+      '.field--name-body', '.field-name-body',
+      'body'
+    ];
+
+    for (var i = 0; i < selectors.length; i++) {
+      var el = doc.querySelector(selectors[i]);
+      if (el) {
+        var clone = sanitizeHtml(el.cloneNode(true));
+        if (clone.textContent.trim().length > 300) {
+          return reflowArticleText(clone.innerHTML, baseUrl);
+        }
+      }
+    }
+    return null;
+  }
+
+  function sanitizeHtml(node) {
+    var removeSelectors = [
+      'script', 'style', 'noscript', 'iframe', 'nav', 'header', 'footer',
+      '.ad', '.ads', '.adsense', '.advertisement', '.ad-container',
+      '[class*="ad-"]', '[class*="ad_"]', '[id*="ad-"]', '[id*="ad_"]',
+      '.social', '.share', '.social-share', '.sharing', '.social-links',
+      '.related', '.related-posts', '.recommended', '.recommendations',
+      '.comments', '#comments', '.comment', '.comment-form',
+      '.sidebar', '#sidebar', '.widget', '.widget-area',
+      '.newsletter', '.subscribe', '.signup', '.mailchimp',
+      '.cookie', '.cookies', '.consent', '.gdpr',
+      '.popup', '.modal', '.overlay', '.lightbox',
+      '.nav', '.navigation', '.menu', '.navbar', '.header',
+      '.footer', '.site-footer', '.page-footer',
+      '.breadcrumb', '.breadcrumbs', '.pagination',
+      '.author', '.byline', '.meta', '.post-meta', '.entry-meta',
+      '.tags', '.categories', '.tag-list',
+      '.published', '.updated', '.date',
+      '.video', '.video-container', '.embed',
+      '.gallery', '.carousel', '.slider',
+      '.hidden', '.visually-hidden', '.screen-reader-text'
+    ];
+
+    for (var i = 0; i < removeSelectors.length; i++) {
+      try {
+        var els = node.querySelectorAll(removeSelectors[i]);
+        for (var j = 0; j < els.length; j++) {
+          els[j].remove();
+        }
+      } catch(e) {}
+    }
+
+    removeEmptyNodes(node);
+    return node;
+  }
+
+  function removeEmptyNodes(node) {
+    var children = Array.from(node.childNodes);
+    for (var i = 0; i < children.length; i++) {
+      var child = children[i];
+      if (child.nodeType === 1) {
+        removeEmptyNodes(child);
+        if (!child.textContent.trim() && child.children.length === 0) {
+          child.remove();
+        }
+      }
+    }
+  }
+
+  function reflowArticleText(html, baseUrl) {
+    var temp = document.createElement('div');
+    temp.innerHTML = html;
+    var blocks = [];
+
+    function walk(n) {
+      if (n.nodeType === 3) {
+        var t = n.textContent.trim();
+        if (t) blocks.push(t);
+      } else if (n.nodeType === 1) {
+        var tag = n.tagName.toLowerCase();
+        if (['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'li', 'figcaption'].indexOf(tag) !== -1) {
+          var inner = n.innerHTML.trim();
+          if (inner) blocks.push('<' + tag + '>' + inner + '</' + tag + '>');
+        } else if (['img', 'figure', 'picture', 'table', 'pre', 'code'].indexOf(tag) !== -1) {
+          blocks.push(n.outerHTML);
+        } else {
+          var t2 = n.textContent.trim();
+          if (t2) blocks.push(t2);
+        }
+      }
+    }
+
+    Array.from(temp.childNodes).forEach(walk);
+    return blocks.join('\n\n');
+  }
+
+  function renderArticleContent(articleHtml, title, feedName, pubDate, url) {
+    var content = document.getElementById('reader-content');
+    var metaParts = [];
+    if (feedName) metaParts.push(feedName);
+    if (pubDate) {
+      try {
+        var d = new Date(pubDate);
+        metaParts.push(d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }));
+      } catch(e) {}
+    }
+    var safeTitle = escapeHtml(title);
+    _readerFontSize = 17;
+    content.innerHTML =
+      '<h1 class="reader-article-title">' + safeTitle + '</h1>' +
+      '<div class="reader-article-meta">' + metaParts.join(' &middot; ') + '</div>' +
+      '<div class="reader-body" style="--reader-font-sz:17px">' + articleHtml + '</div>';
+  }
+
+  function renderArticleFallback(url, title, feedName, pubDate) {
+    var content = document.getElementById('reader-content');
+    var link = getTranslatedLink(url, false);
+    var safeTitle = escapeHtml(title);
+    content.innerHTML =
+      '<div class="reader-status">' +
+      'Could not extract article content automatically.<br><br>' +
+      '<strong>' + safeTitle + '</strong><br><br>' +
+      '<a href="' + link + '" target="_blank" style="text-decoration:underline;font-weight:bold;color:#000000;">View original article &rarr;</a>' +
+      '</div>';
+  }
+
+  function setReaderProgress() {
+    var scrollEl = document.getElementById('reader-scroll');
+    var progress = document.getElementById('reader-progress');
+    var pct = (scrollEl.scrollTop / (scrollEl.scrollHeight - scrollEl.clientHeight)) * 100;
+    progress.style.width = Math.min(100, Math.max(0, pct)) + '%';
+  }
+
+  // --- Reader event wiring ---
+  document.addEventListener('click', function(e) {
+    var trigger = e.target.closest('.reader-trigger');
+    if (trigger) {
+      var url = trigger.getAttribute('data-url');
+      if (url) {
+        openReader(url, trigger.getAttribute('data-title'), trigger.getAttribute('data-feed'), trigger.getAttribute('data-date'), trigger.getAttribute('data-isyoutube') === 'true');
+      }
+    }
+  });
+
+  document.getElementById('reader-close-btn').addEventListener('click', closeReader);
+  document.getElementById('reader-backdrop').addEventListener('click', closeReader);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeReader();
+  });
+
+  document.getElementById('reader-font-dec').addEventListener('click', function() {
+    _readerFontSize = Math.max(13, _readerFontSize - 1);
+    var body = document.querySelector('.reader-body');
+    if (body) body.style.setProperty('--reader-font-sz', _readerFontSize + 'px');
+  });
+
+  document.getElementById('reader-font-inc').addEventListener('click', function() {
+    _readerFontSize = Math.min(24, _readerFontSize + 1);
+    var body = document.querySelector('.reader-body');
+    if (body) body.style.setProperty('--reader-font-sz', _readerFontSize + 'px');
+  });
+
+  document.getElementById('reader-scroll').addEventListener('scroll', setReaderProgress);
+</script>
+
+<script id="sw-src" type="text/plain">
+const CACHE = 'khichdi-v1';
+const OFFLINE_URL = './';
+self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(CACHE).then(c => c.addAll([OFFLINE_URL]).catch(() => {}))); });
+self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
+self.addEventListener('fetch', e => { const u = e.request.url; if (e.request.method !== 'GET' || u.startsWith('chrome-extension') || u.startsWith('data:')) return; if (u.includes('allorigins') || u.includes('googleapis') || u.includes('cdnjs') || u.includes('fonts.googleapis') || u.includes('fonts.gstatic')) { e.respondWith(fetch(e.request).catch(() => caches.match(e.request))); return; } e.respondWith(caches.match(e.request).then(cached => { if (cached) return cached; return fetch(e.request).then(resp => { if (resp && resp.status === 200 && resp.type !== 'opaque') caches.open(CACHE).then(c => c.put(e.request, resp.clone())); return resp; }).catch(() => caches.match(OFFLINE_URL)); })); });
+</script>
+<script>
+(function() {
+  const manifest = {
+    name: "खिचडी 1J — Recipes · Stories · Videos",
+    short_name: "खिचडी 1J",
+    description: "Marathi recipes, stories, videos and lifestyle — ad-free reader",
+    start_url: "./",
+    display: "standalone",
+    orientation: "portrait-primary",
+    background_color: "#ece0c4",
+    theme_color: "#ece0c4",
+    categories: ["food", "lifestyle", "news"],
+    icons: [{
+      src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='28' fill='%23ece0c4'/%3E%3Cpath d='M30 110 L110 110 C115 110 118 135 105 135 L45 135 C30 135 25 110 30 110 Z' fill='%231a1a1a'/%3E%3Cpath d='M105 115 Q145 110 165 105 A5 5 0 0 1 165 115 Q145 120 105 125 Z' fill='%231a1a1a'/%3E%3Cpath d='M60 90 C45 75 75 60 55 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M80 90 C65 75 95 60 75 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M100 90 C85 75 115 60 95 45' fill='none' stroke='%231a1a1a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E",
+      sizes: "192x192", type: "image/svg+xml", purpose: "any maskable"
+    }]
+  };
+  try {
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+    document.getElementById('pwa-manifest-link').href = URL.createObjectURL(blob);
+  } catch(e) { console.warn('Manifest blob failed:', e); }
+
+  if ('serviceWorker' in navigator) {
+    try {
+      const swText = document.getElementById('sw-src').textContent;
+      const b64 = btoa(unescape(encodeURIComponent(swText)));
+      navigator.serviceWorker.register('data:application/javascript;base64,' + b64, { scope: './' })
+        .then(reg => console.log('SW registered', reg.scope))
+        .catch(err => console.info('SW skipped (needs http/https):', err.message));
+    } catch(e) { console.info('SW not available:', e.message); }
+  }
+
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    setTimeout(function() {
+      var badge = document.createElement('div');
+      badge.id = 'pwa-badge';
+      badge.innerHTML = '<span style="cursor:pointer;position:fixed;bottom:20px;left:16px;z-index:1300;background:#1a1a1a;color:#ece0c4;font-family:\'IBM Plex Mono\',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:8px 16px;border-radius:20px;box-shadow:0 4px 16px rgba(0,0,0,0.3);display:flex;align-items:center;gap:8px;">⬇ Install खिचडी 1J</span>';
+      badge.onclick = function(e) {
+        if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(function(){ deferredPrompt = null; badge.remove(); }); }
+      };
+      document.body.appendChild(badge);
+    }, 3000);
+  });
+  window.addEventListener('appinstalled', function() {
+    var b = document.getElementById('pwa-badge'); if (b) b.remove();
+  });
+})();
+</script>
+
+</body>
+</html>
