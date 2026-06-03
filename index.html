@@ -7,18 +7,35 @@
     <title>Quick Commerce Finder</title>
     
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#cccccc">
+    <meta name="theme-color" content="#f4f0e6">
     
     <style>
         /* * GLOBAL STYLES
-         * Strictly adhering to black font requirement. No white text permitted.
+         * Strictly adhering to black font requirement.
+         * Forcing normal font weight on everything.
+         * Using a serif font for the newspaper aesthetic.
          */
         * {
             color: #000000 !important;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             box-sizing: border-box;
+            font-weight: normal !important;
         }
 
+        /* The only exception for bold text */
+        .main-title {
+            font-weight: bold !important;
+            font-size: 2.2em;
+            text-align: center;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Clean, light background behind the app */
         body {
             background-color: #f4f4f4;
             margin: 0;
@@ -26,14 +43,14 @@
             line-height: 1.6;
         }
 
+        /* Newspaper reading background for the app */
         .app-container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
-            background-color: #e0e0e0;
+            background-color: #f4f0e6; /* Aged newspaper color */
             padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #cccccc;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #000000;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .nav-tabs {
@@ -45,15 +62,13 @@
         .tab-item {
             padding: 10px 20px;
             cursor: pointer;
-            background-color: #d0d0d0;
+            background-color: #e8e2d2;
             border: 1px solid #000000;
             border-bottom: none;
-            font-weight: bold;
-            border-radius: 4px 4px 0 0;
         }
 
         .tab-item.active {
-            background-color: #e0e0e0;
+            background-color: #f4f0e6;
             border-top: 3px solid #000000;
         }
 
@@ -64,15 +79,13 @@
         .form-label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
         }
 
         .text-input {
             width: 100%;
             padding: 12px;
             border: 1px solid #000000;
-            background-color: #f9f9f9;
-            border-radius: 4px;
+            background-color: #ffffff;
         }
 
         .text-input::placeholder {
@@ -80,23 +93,37 @@
             opacity: 0.6;
         }
 
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
         .btn-primary {
             padding: 12px 20px;
-            background-color: #cccccc;
-            border: 2px solid #000000;
-            border-radius: 4px;
+            background-color: #e8e2d2;
+            border: 1px solid #000000;
             cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
+            flex: 1;
+            min-width: 200px;
             transition: background-color 0.2s ease;
         }
 
+        .btn-secondary {
+            background-color: #d1c8b4;
+        }
+
         .btn-primary:hover:not(:disabled) {
-            background-color: #bbbbbb;
+            background-color: #d1c8b4;
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background-color: #bab09d;
         }
 
         .btn-primary:disabled {
-            background-color: #999999;
+            background-color: #cccccc;
             cursor: not-allowed;
             border-style: dashed;
         }
@@ -106,16 +133,13 @@
             margin-top: 25px;
             padding: 20px;
             border: 1px dashed #000000;
-            background-color: #d9d9d9;
-            border-radius: 4px;
+            background-color: #e8e2d2;
         }
 
         .location-badge {
-            font-size: 0.9em;
-            font-weight: bold;
             margin-top: 15px;
             padding: 8px;
-            background-color: #cccccc;
+            background-color: #d1c8b4;
             border-left: 4px solid #000000;
         }
 
@@ -124,7 +148,7 @@
             border-collapse: collapse;
             margin-top: 25px;
             display: none;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
         }
 
         .results-grid th, 
@@ -135,14 +159,15 @@
         }
 
         .results-grid th {
-            background-color: #cccccc;
-            font-weight: bold;
+            background-color: #e8e2d2;
         }
     </style>
 </head>
 <body>
 
 <main class="app-container">
+    <h1 class="main-title">Quick Commerce Finder</h1>
+    
     <header class="nav-tabs">
         <div class="tab-item active">Google Shopping TAB</div>
     </header>
@@ -150,12 +175,10 @@
     <section class="form-section">
         <label for="productUrl" class="form-label">Paste Shopping Portal Link (Amazon, Flipkart, Blinkit):</label>
         <input type="url" id="productUrl" class="text-input" placeholder="https://www.amazon.in/dp/B08L5WHFT9" aria-label="Product URL">
-        <button id="decodeBtn" class="btn-primary">Decode URL</button>
+        <button type="button" id="decodeBtn" class="btn-primary">Decode URL</button>
     </section>
 
     <section class="confirmation-panel" id="confirmationBox" aria-live="polite">
-        <h3>Confirm Product Details</h3>
-        
         <div class="form-section">
             <label for="productName" class="form-label">Product Name:</label>
             <input type="text" id="productName" class="text-input" aria-label="Decoded Product Name">
@@ -167,7 +190,11 @@
         </div>
         
         <div class="location-badge">Target Location: Thane, 400615</div>
-        <button id="confirmSearchBtn" class="btn-primary">Confirm & Search in Quick Commerce</button>
+        
+        <div class="button-group">
+            <button type="button" id="confirmSearchBtn" class="btn-primary">Search via Google Shopping</button>
+            <button type="button" id="directScanBtn" class="btn-primary btn-secondary">Direct Scan Portals</button>
+        </div>
     </section>
 
     <table class="results-grid" id="resultsTable">
@@ -177,6 +204,7 @@
                 <th>Product Name</th>
                 <th>Size</th>
                 <th>Price</th>
+                <th>Search Method</th>
             </tr>
         </thead>
         <tbody id="resultsBody">
@@ -205,6 +233,7 @@
             productName: document.getElementById('productName'),
             productSize: document.getElementById('productSize'),
             confirmSearchBtn: document.getElementById('confirmSearchBtn'),
+            directScanBtn: document.getElementById('directScanBtn'),
             resultsTable: document.getElementById('resultsTable'),
             resultsBody: document.getElementById('resultsBody')
         };
@@ -401,7 +430,7 @@
             }
         }
 
-        function simulateApiSearch() {
+        function simulateGoogleSearch() {
             const productName = DOM.productName.value.trim();
             const productSize = DOM.productSize.value.trim();
 
@@ -410,8 +439,9 @@
                 return;
             }
 
-            DOM.confirmSearchBtn.innerText = "Searching Platforms...";
+            DOM.confirmSearchBtn.innerText = "Querying Google Shopping...";
             DOM.confirmSearchBtn.disabled = true;
+            DOM.directScanBtn.disabled = true;
 
             setTimeout(() => {
                 const mockResults = TARGET_PORTALS.map(portal => {
@@ -420,15 +450,50 @@
                         portal: portal,
                         name: productName,
                         size: productSize,
-                        price: "₹" + basePrice
+                        price: "₹" + basePrice,
+                        method: "Google Shopping"
                     };
                 });
 
                 renderResultsTable(mockResults);
                 
-                DOM.confirmSearchBtn.innerText = "Confirm & Search in Quick Commerce";
+                DOM.confirmSearchBtn.innerText = "Search via Google Shopping";
                 DOM.confirmSearchBtn.disabled = false;
+                DOM.directScanBtn.disabled = false;
             }, 1800);
+        }
+
+        function simulateDirectScan() {
+            const productName = DOM.productName.value.trim();
+            const productSize = DOM.productSize.value.trim();
+
+            if (!productName || !productSize) {
+                alert("Please ensure both Product Name and Size are filled.");
+                return;
+            }
+
+            DOM.directScanBtn.innerText = "Directly Scanning Portals...";
+            DOM.directScanBtn.disabled = true;
+            DOM.confirmSearchBtn.disabled = true;
+
+            setTimeout(() => {
+                const mockResults = TARGET_PORTALS.map(portal => {
+                    const basePrice = Math.floor(Math.random() * 220) + 25;
+                    return {
+                        portal: portal,
+                        name: productName,
+                        size: productSize,
+                        price: "₹" + basePrice,
+                        method: "Direct Scan"
+                    };
+                });
+
+                renderResultsTable(mockResults);
+                
+                DOM.directScanBtn.innerText = "Direct Scan Portals";
+                DOM.directScanBtn.disabled = false;
+                DOM.confirmSearchBtn.disabled = false;
+            }, 2500);
         }
 
         function renderResultsTable(results) {
@@ -440,7 +505,8 @@
                 const htmlString = "<td>" + escapeHTML(item.portal) + "</td>" +
                                    "<td>" + escapeHTML(item.name) + "</td>" +
                                    "<td>" + escapeHTML(item.size) + "</td>" +
-                                   "<td><strong>" + escapeHTML(item.price) + "</strong></td>";
+                                   "<td>" + escapeHTML(item.price) + "</td>" +
+                                   "<td>" + escapeHTML(item.method) + "</td>";
                 
                 row.innerHTML = htmlString;
                 DOM.resultsBody.appendChild(row);
@@ -485,7 +551,8 @@
         
         function init() {
             DOM.decodeBtn.addEventListener('click', handleUrlDecode);
-            DOM.confirmSearchBtn.addEventListener('click', simulateApiSearch);
+            DOM.confirmSearchBtn.addEventListener('click', simulateGoogleSearch);
+            DOM.directScanBtn.addEventListener('click', simulateDirectScan);
         }
 
         return { init };
