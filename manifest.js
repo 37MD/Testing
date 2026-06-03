@@ -7,16 +7,19 @@
   "background_color": "#f4f0e6",
   "theme_color": "#f4f0e6",
   "display": "standalone",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/QuickCommerce/icon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "/QuickCommerce/icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ]
 }
