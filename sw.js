@@ -1,43 +1,53 @@
+// ==========================================
+// QuickCommerce - Service Worker (sw.js)
+// Place this file in the ROOT of your repo
+// ==========================================
+
 var GHPATH = '/QuickCommerce';
 var APP_PREFIX = 'qcfinder_';
 var VERSION = 'version_01';
-
-var URLS = [
-  `${GHPATH}/`,
-  `${GHPATH}/index.html`
-];
-
 var CACHE_NAME = APP_PREFIX + VERSION;
 
+// Files to cache for offline use
+var URLS = [
+    GHPATH + '/',
+    GHPATH + '/index.html',
+    GHPATH + '/manifest.json',
+    GHPATH + '/icon-192.png',
+    GHPATH + '/icon-512.png'
+];
+
+// FETCH: serve from cache if available, else fetch from network
 self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(request) {
-      if (request) return request;
-      else return fetch(e.request);
-    })
-  );
+    e.respondWith(
+        caches.match(e.request).then(function(cachedResponse) {
+            return cachedResponse || fetch(e.request);
+        })
+    );
 });
 
+// INSTALL: cache all listed files
 self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(URLS);
-    })
-  );
+    e.waitUntil(
+        caches.open(CACHE_NAME).then(function(cache) {
+            return cache.addAll(URLS);
+        })
+    );
+    self.skipWaiting();
 });
 
+// ACTIVATE: delete old caches from previous versions
 self.addEventListener('activate', function(e) {
-  e.waitUntil(
-    caches.keys().then(function(keyList) {
-      var cacheWhitelist = keyList.filter(function(key) {
-        return key.indexOf(APP_PREFIX) === 0;
-      });
-      cacheWhitelist.push(CACHE_NAME);
-      return Promise.all(keyList.map(function(key, i) {
-        if (cacheWhitelist.indexOf(key) === -1) {
-          return caches.delete(keyList[i]);
-        }
-      }));
-    })
-  );
+    e.waitUntil(
+        caches.keys().then(function(keyList) {
+            return Promise.all(
+                keyList.map(function(key) {
+                    if (key.indexOf(APP_PREFIX) === 0 && key !== CACHE_NAME) {
+                        return caches.delete(key);
+                    }
+                })
+            );
+        })
+    );
+    self.clients.claim();
 });
