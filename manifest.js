@@ -1,23 +1,22 @@
 {
   "name": "Quick Commerce Finder",
-  "short_name": "QCFinder",
-  "description": "Compare Quick Commerce Prices in Thane",
-  "start_url": "./index.html",
+  "short_name": "QC Finder",
+  "description": "Quick Commerce Price Finder for Thane region",
+  "scope": "/QuickCommerce/",
+  "start_url": "/QuickCommerce/",
+  "background_color": "#f4f0e6",
+  "theme_color": "#f4f0e6",
   "display": "standalone",
-  "background_color": "#f4f4f4",
-  "theme_color": "#cccccc",
   "icons": [
     {
-      "src": "icon-192.png",
-      "sizes": "192x192",
+      "src": "/QuickCommerce/icon-192.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "192x192"
     },
     {
-      "src": "icon-512.png",
-      "sizes": "512x512",
+      "src": "/QuickCommerce/icon-512.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "512x512"
     }
   ]
 }
