@@ -6,8 +6,17 @@
     <meta name="description" content="Quick Commerce Price Finder for Thane region">
     <title>Quick Commerce Finder</title>
     
-    <link rel="manifest" href="manifest.json">
+    <!-- PWA: Manifest & Theme -->
+    <link rel="canonical" href="https://37md.github.io/QuickCommerce/" />
+    <link rel="manifest" href="/QuickCommerce/manifest.json">
     <meta name="theme-color" content="#f4f0e6">
+
+    <!-- PWA: iOS / Apple support -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="QC Finder">
+    <link rel="apple-touch-icon" href="/QuickCommerce/icon-192.png">
     
     <style>
         /* * GLOBAL STYLES
@@ -565,9 +574,9 @@
     // ==========================================
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js')
+            navigator.serviceWorker.register('/QuickCommerce/sw.js', { scope: '/QuickCommerce/' })
                 .then(registration => {
-                    console.log('ServiceWorker registration successful');
+                    console.log('ServiceWorker registration successful:', registration.scope);
                 })
                 .catch(err => {
                     console.log('ServiceWorker registration failed: ', err);
